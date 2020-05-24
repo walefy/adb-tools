@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox, filedialog
 from output import write_log, main
 from datetime import datetime
+from os import path
 
 
 class Main():
@@ -254,9 +255,9 @@ class Main():
             count = 0
             for c in range(10):
                 nome = count
-                #write_log(f'adb shell screencap /sdcard/{nome}.png')
-                #write_log(f'adb pull /sdcard/{nome}.png fotos')
-                #write_log(f'adb shell "cd /sdcard/ && rm {nome}.png"')
+
+                if path.exists('fotos') == False:
+                	write_log('mkdir fotos')
 
                 write_log(f'adb shell screenrecord --time-limit 5 /sdcard/{nome}.mp4')
                 write_log(f'adb pull /sdcard/{nome}.mp4 fotos')
