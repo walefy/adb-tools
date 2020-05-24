@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirro Screen</title>
+</head>
+<body>
+    <video id='prints' width=20% height=20% src='' autoplay playsinline autoplay muted></video>
+
+    <script>
+        var count
+        count = 0
+        function atualizar() {
+            foto = window.document.getElementById('prints')
+            foto.src = `fotos/${count}.mp4`
+            count++
+        }
+        setInterval(atualizar, 7000)
+    </script>
+</body>
+</html>
